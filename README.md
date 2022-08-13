@@ -40,7 +40,7 @@ python-dotenv==0.20.0
 
 #### If you upgraded bot then you should to build his new version. I creted some tools for this!
 
-[DEV TOOLS]("https://github.com/Avdushin/ROBIN/blob/main/Makefile")
+[DEV TOOLS](https://github.com/Avdushin/ROBIN/blob/main/Makefile)
 
 ### Windows build example
 Use `make example-win` to build your own modified bot at the "examples" folder.
