@@ -41,24 +41,34 @@ async def bot_message(message: types.Message):
             # await bot.send_dice(message.chat.id, emoji="🎲")
             msg=await message.reply_dice(emoji='🎲')
             alert = f'Ты выбил: <b>{msg.dice.value}</b>'
-            sleep(3), await  bot.send_message(message.chat.id, alert)
+            # sleep(3), await  bot.send_message(message.chat.id, alert)
             break
     # 🎰 CASINO
     for s in msgs.casino_cmd:
         if message.text.lower().find(s.lower()) != -1:
-            # await bot.send_dice(message.chat.id, emoji="🎰")
             msg=await message.reply_dice(emoji='🎰')
-            alert = f'Ты выбил: <b>{msg.dice.value}</b>'
-            sleep(3), await  bot.send_message(message.chat.id, alert)
+            match msg.dice.value:
+                case 1 | 22 | 43 | 64:
+                    sleep(3), await bot.send_sticker(message.from_user.id, f'{random.choice(msgs.green_lizard_cool)}')
+                    await  bot.send_message(message.chat.id, 'Хорош!')
+                case _:
+                    pass
             break
+        
         """ SPORT GAMES """
     # 🎯 DART
     for s in msgs.dart_cmd:
         if message.text.lower().find(s.lower()) != -1:
-            # await bot.send_dice(message.chat.id, emoji="🎯")
             msg=await message.reply_dice(emoji='🎯')
-            alert = f'Ты выбил: <b>{msg.dice.value}</b>'
-            sleep(3), await  bot.send_message(message.chat.id, alert)
+            match msg.dice.value:
+                case 1:
+                    sleep(3), await  bot.send_sticker(message.chat.id, 'CAACAgIAAxkBAAEFisZi9nXjPwEHZiGaUWxAL1S4Qy5GZgACwQAD9wLID2JmDHNJYyc5KQQ')
+                    await  bot.send_message(message.chat.id, 'Мимо!')
+                case 2 | 3 | 4 | 5:
+                    alert = f'ОЧКИ: <b>{msg.dice.value}</b>'
+                    sleep(3), await bot.send_message(message.chat.id, alert)
+                case 6:
+                    sleep(3), await bot.send_sticker(message.chat.id, 'CAACAgIAAxkBAAEFiqhi9nMrmJ3FXRtFhanmQEDHtqcZOwACywAD9wLID6AkdNt7g-RaKQQ')
             break
     # ⚽ FOOTBALL
     for s in msgs.football_cmd:
@@ -71,24 +81,36 @@ async def bot_message(message: types.Message):
                     sleep(3), await  bot.send_message(message.chat.id, 'ГОЛ!!!')
                 case _:
                     sleep(3), await  bot.send_message(message.chat.id, 'МИМО =(')
-            sleep(3), await  bot.send_message(message.chat.id, alert)
             break
     # 🏀 BASKETBALL
+    loop = asyncio.get_event_loop()
+    delay = 3
     for s in msgs.basketball_cmd:
         if message.text.lower().find(s.lower()) != -1:
             msg=await message.reply_dice(emoji='🏀')
             alert = f'Ты выбил: <b>{msg.dice.value}</b>'
-            if msg.dice.value == 4 | 5:
-                sleep(4), await  bot.send_message(message.chat.id, 'ПОПАЛ!')
-            else:
-                sleep(4), await  bot.send_message(message.chat.id, 'МИМО!')
-            await  bot.send_message(message.chat.id, alert)
-            # await bot.send_dice(message.chat.id, emoji="🏀")
+            match msg.dice.value:
+                case 4 | 5 | 6:
+                    time.sleep(3), await  bot.send_message(message.chat.id, 'ПОПАЛ!')
+                # case 3:
+                #     time.sleep(3), await  bot.send_message(message.chat.id, 'ПОЧТИ :/')
+                case 1 | 2:
+                    time.sleep(3), await  bot.send_message(message.chat.id, 'МИМО!')
             break
     # ---🎳 BOWLING ---
     for s in msgs.bowling_cmd:
         if message.text.lower().find(s.lower()) != -1:
-            await bot.send_dice(message.chat.id, emoji="🎳")
+            msg=await message.reply_dice(emoji='🎳')
+            alert = f'Ты выбил: <b>{msg.dice.value}</b>'
+            if msg.dice.value == 6:
+                time.sleep(3), await  bot.send_sticker(message.chat.id, 'CAACAgIAAxkBAAEFiqhi9nMrmJ3FXRtFhanmQEDHtqcZOwACywAD9wLID6AkdNt7g-RaKQQ')
+                await  bot.send_message(message.chat.id, 'STRIKE!!!💯')
+            else:
+                time.sleep(3), await  bot.send_message(message.chat.id, 'Теперь я:')
+                bp = await bot.send_dice(message.chat.id, emoji="🎳")
+                if bp.dice.value ==6:
+                    time.sleep(3), await  bot.send_sticker(message.chat.id, 'CAACAgIAAxkBAAEFiqhi9nMrmJ3FXRtFhanmQEDHtqcZOwACywAD9wLID6AkdNt7g-RaKQQ')
+                    await  bot.send_message(message.chat.id, 'STRIKE!!!💯')
             break
     # ---GUESS THE NUMBER ---
     # if message.text == "GUESS THE NUMBER":
@@ -100,9 +122,16 @@ async def bot_message(message: types.Message):
     #         await message.reply('Не угадал!')
 
         """ MEMES """
+    # -- BRUUH --
     for s in msgs.bruh:
         if message.text.lower().find(s.lower()) != -1:
             await bot.send_photo(message.from_user.id, photo='https://c.tenor.com/lTtsDp9dZ34AAAAC/biruh-bruh.gif')
+            break
+    # --- SHEESH ---
+    for s in msgs.sheesh_cmd:
+        if message.text.lower().find(s.lower()) != -1:
+            await bot.send_photo(message.from_user.id, photo=f'{random.choice(msgs.sheesh_answers_img)}')
+            await bot.send_message(message.from_user.id, f'{random.choice(msgs.sheesh_answers_text)}')
             break
         """"Кричалки"""
     # ЦСКА
@@ -119,9 +148,23 @@ async def bot_message(message: types.Message):
             break
     
     """ RANDOM """
+    # -- SMILES BATTLES --
     for s in msgs.smiles_list:
         if message.text.lower().find(s.lower()) != -1:
             await bot.send_message(message.from_user.id, f'{random.choice(msgs.smiles_answers)}'.format(message.from_user))
+            break
+    # -- LIZARD STIKERS BATTLE --
+    # for s in msgs.green_lizard_stikers:
+    #     # if message.text.send_stiker.find(s.lower()) != -1:
+    #     if bot.get_file.find(s.lower()) != -1:
+    #         await bot.send_sticker(message.from_user.id, f'{random.choice(msgs.green_lizard_stikers)}'.format(message.from_user))
+    #         break
+    
+    # --- Morning ---
+    for s in msgs.morning_trigger:
+        if message.text.lower().find(s.lower()) != -1:
+            await bot.send_sticker(message.from_user.id, f'{random.choice(msgs.green_lizard_morning)}'.format(message.from_user))
+            await bot.send_message(message.from_user.id, f'{random.choice(msgs.morning_answers)}') 
             break
     
     """ BAD WORDS """
@@ -155,6 +198,12 @@ async def bot_message(message: types.Message):
         if message.text.lower().find(s.lower()) != -1:
             await bot.send_message(message.from_user.id, f'{random.choice(msgs.sry_answers)}'.format(message.from_user))
             break
+    # --- LAUGH ---
+    for s in msgs.laugh_trigger:
+        if message.text.lower().find(s.lower()) != -1:
+            # await bot.send_message(message.from_user.id, f'{random.choice(msgs.laugh_answers)}'.format(message.from_user))
+            await bot.send_sticker(message.from_user.id, f'{random.choice(msgs.green_lizard_laugh)}')
+            break
 
     match message.text:
         # --- General --- #
@@ -183,50 +232,7 @@ async def bot_message(message: types.Message):
         case "🎰 LUCK":
              await bot.send_message(message.from_user.id, '🎰 LUCK'.format(message.from_user),
         reply_markup = markups.casino_menu, parse_mode='html')
-        
-        # --- Оскорбления ---
-        # case "Чурка" | "чурка" | "чуркаа" | "Ты чурка" | "ты чурка" :
-        #      await bot.send_message(message.from_user.id, 'Сам ты чурка :('.format(message.from_user),
-        # parse_mode='html')
-        # case "Сука" | "сука" | "Ты Сука" | "ты Сука" | "ты сука":
-        #      await bot.send_message(message.from_user.id, 'Я не сука, а кобель - хочешь ротиком проверь хахаха'.format(message.from_user),
-        # parse_mode='html')
-        # case "Ебать" | "ебать" | "Ептать" | "ептать" | "Ёптать" | "ёптать":
-        # case words:
-        #     await bot.send_message(message.from_user.id, 'Хух'.format(message.from_user))
-        #      await bot.send_message(message.from_user.id, f'{random.choice(msgs.eps)}'.format(message.from_user),
-        # parse_mode='html')
-        # case "Иди на хуй" | "иди на хуй" | "Иди на хуй!" | "иди на хуй!" | "Пошел на хуй" | "пошел на хуй" | "Пошел на хуй!" | "пошел на хуй!":
-        #     await bot.send_message(message.from_user.id, 'САМ ПОШЁЛ НА ХУЙ ЕБЛАН!'.format(message.from_user),
-        # parse_mode='html')
-        # case "Иди в жопу" | "иди в жопу":
-        #     await bot.send_message(message.from_user.id, 'Шо, опять?!'.format(message.from_user),
-        # parse_mode='html')
-        case "Пошёл в жопу" | "пошёл в жопу" | "Иди в очко" | "иди в очко":
-            await bot.send_message(message.from_user.id, 'А дорогу покажешь?))'.format(message.from_user),
-        parse_mode='html')
-        # case "Мать в канаве" | "мать в канаве" | "Твоя мать в канаве" | "твоя мать в канаве" | "У тебя мать в канаве" | "у тебя мать в канаве":
-        #     await bot.send_message(message.from_user.id, 'У-у-у не повезло, не повезло... ну думаю батя то у тебя остался 😅'.format(message.from_user),
-        # parse_mode='html')
-        # --- SORRY ---
-        # case "прости" | "всё прости" | "ну прости" | "извини" | "всё извини" | "ну извини":
-        #     await bot.send_message(message.from_user.id, 'Ладно, бывет...'.format(message.from_user),
-        # parse_mode='html')
         # --- Happy ---
-        case 'ахаха' | 'аха' | 'ахахаха' | 'хех' | 'азаза':
-            await bot.send_photo(message.from_user.id, photo='https://www.anime-internet.com/content/images/size/w2000/wordpress/2021/02/c2180b854c81945835d05aad85a6d89b.jpg')
-            await bot.send_message(message.from_user.id, 'Аха-ха-ха шииииииш'.format(message.from_user),
-        parse_mode='html')
-        case "хех":
-            await bot.send_message(message.from_user.id, 'АХАха да, ржомба!'.format(message.from_user),
-        parse_mode='html')
-        case 'sheesh' | 'sheeesh' | 'sheeeesh' | 'sheeeeesh' | 'shish' | 'shiish' | 'shiiish' | 'шиш' | 'шииш' | 'шиииш' | 'шииииш' | 'шиииииш' | 'шииииииииш':
-            await bot.send_photo(message.from_user.id, photo='https://www.anime-internet.com/content/images/size/w2000/wordpress/2021/02/c2180b854c81945835d05aad85a6d89b.jpg')
-            await bot.send_message(message.from_user.id, 'Аха-ха-ха шииииииш'.format(message.from_user),
-        parse_mode='html')
-        # case 'bruh' | 'bruuh' | 'bruuuh' | 'bruuuuuh' | 'bruuuuuuh' | 'bruuuuuuuh' | 'брух' | 'брах' | 'брааах':
-        #     return await bot.send_photo(message.from_user.id, photo='https://c.tenor.com/lTtsDp9dZ34AAAAC/biruh-bruh.gif')
-
-    # if  msgs.words in message.text:
-    #     bot.send_message(message.from_user.id, f'{is_part_in_list(message.text.lower(), msgs.words)}'.format(message.from_user),
-    # parse_mode='html')
+        # case "хех":
+        #     await bot.send_message(message.from_user.id, 'АХАха да, ржомба!'.format(message.from_user),
+        # parse_mode='html')

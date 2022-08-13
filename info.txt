@@ -1,0 +1,15 @@
+
+
+# HOW TO INSTALL BOT
+
+# For Server | Linux | MacOs
+
+# Run "make install" to install bot
+# RUN "make start" to start bot
+
+# For WINDOWS
+
+# Run "make win-install" to install bot
+# RUN "make win-start" to start bot
+
+
