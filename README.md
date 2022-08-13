@@ -1,12 +1,12 @@
 <div align="center">
-    <a href="https://t.me/robinisrobot" target="_blank">
+    <a href="https://t.me/robionisrobot" target="_blank">
         <img src="assets/img/Robinisribiot.png" 
         width="400px" 
         height="370px"/>
     </a>
 </div>
 
-<h1 align="center"><a href="https://t.me/robinisrobot" target="_blank" style="text-decoration: none;color: #FFFFFF">ROBIN</a> - Your friend at the Telegram!</h1>
+<h1 align="center"><a href="https://t.me/robionisrobot" target="_blank" style="text-decoration: none;color: #FFFFFF">ROBIN</a> - Your friend at the Telegram!</h1>
 
 #### Robin is always ready to keep you company and play with you!
 

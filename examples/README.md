@@ -1,12 +1,12 @@
 <h1 align="center">EXAMPLE</h1>
 
 <div align="center">
-    <a href="https://t.me/robinisrobot" target="_blank">
+    <a href="https://t.me/robionisrobot" target="_blank">
         <img src="../assets/img/bots.gif" 
     </a>
 </div>
 
-<h2 align="center" style="font-size: 2em"><a href="https://t.me/robinisrobinisrobot" target="_blank">DEMO - @robionisrobot</a></h2>
+<h2 align="center" style="font-size: 2em"><a href="https://t.me/robionisrobot" target="_blank">DEMO - @robionisrobot</a></h2>
 
 #### Robin is always ready to keep you company and play with you!
 
