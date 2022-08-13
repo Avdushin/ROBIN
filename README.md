@@ -16,6 +16,7 @@
 git clone https://github.com/Avdushin/ROBIN
 cd ROBIN
 make install
+make setup
 ```
 #### EDIT `.env` file:
 
@@ -29,7 +30,7 @@ You can get a **BOT TOKEN** from [@BotFather](https://t.me/BotFather)
 
 ### DEPENDENCIES
 
-```
+``` json
 aiogram==2.21
 async-timeout==4.0.2
 emoji==2.0.0

@@ -6,9 +6,7 @@ start:
 
 install:
 	pip3 install -r requirements.txt
-	echo BOT_TOKEN=31313173843:ADFciRddsTestTokEN >> .env
-	echo Installing .env file...
-	echo Please put your bot TOKEN at the .env file.
+	python3 setup.py
 
 # --- dev tools ---
 # Make "examples" folder (Unix)
