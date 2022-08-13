@@ -18,7 +18,8 @@ cd ROBIN
 make install
 make setup
 ```
-#### EDIT `.env` file:
+
+#### OR YOU CAN EDIT `.env` file:
 
 ```
 BOT_TOKEN=your:token
@@ -30,7 +31,7 @@ You can get a **BOT TOKEN** from [@BotFather](https://t.me/BotFather)
 
 ### DEPENDENCIES
 
-``` json
+```
 aiogram==2.21
 async-timeout==4.0.2
 emoji==2.0.0
