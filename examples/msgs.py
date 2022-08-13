@@ -9,7 +9,7 @@ botname = 'Меня зовут <b>{1.first_name}<b>!'
 
 # -- trigger words --
 morning_trigger = ['MORNING', 'УТРЕЧКА', 'ДОБРОЕ УТРО', 'УТРО', 'УТРО ДОБРОЕ', 'УТРЕЧКО']
-laugh_trigger = ['ХАХ', 'АЗА', 'АЗАЗАЗ', 'ХАЭААЖАХХАЖА', 'ХЕХ', 'ХЕХЕХЕ', 'AHAHAHHAHAHA', 'HAHAHAHAHA', 'HEHEHE']
+laugh_trigger = ['хах', 'азаза', 'ХАЭААЖАХХАЖА', 'ХЕХ', 'ХЕХЕХЕ', 'AHAHAHHAHAHA', 'HAHAHAHAHA', 'HEHEHE']
 #   GAMES
 dice_cmd = ['🎲 DICE', 'DICE', 'дайс', 'Кубик']
 casino_cmd = ['🎰 CASINO', '🎰 Casino' , 'Казино', 'Казик']
