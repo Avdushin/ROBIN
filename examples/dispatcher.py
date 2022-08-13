@@ -30,7 +30,7 @@ async def command_start(message: types.Message):
 @dp.message_handler(commands=['info'])
 async def command_start(message: types.Message):
     me = await bot.get_me()
-    await bot.send_message(message.from_user.id, f"Я <b><a href='https://t.me/{me.username}'>{me.first_name}</a></b>.\nМой автор - <a href='https://github.com/avdushin'>Ananazz</a>!".format(bot.get_me()), parse_mode="html")
+    await bot.send_message(message.from_user.id, f"Я <b><a href='https://t.me/{me.username}'>{me.first_name}</a></b>.\nМой автор - <a href='https://github.com/avdushin'>ITDOBRO</a>!".format(bot.get_me()), parse_mode="html")
 
 @dp.message_handler()
 async def bot_message(message: types.Message):
@@ -213,10 +213,10 @@ async def bot_message(message: types.Message):
         # --- INFO --- #
         case "ℹ️ INFO":
             me = await bot.get_me()
-            await bot.send_message(message.from_user.id, f"Я <b><a href='https://t.me/{me.username}'>{me.first_name}</a></b>.\nМой автор - <a href='https://github.com/avdushin'>Ananazz</a>!".format(bot.get_me()), parse_mode="html")
+            await bot.send_message(message.from_user.id, f"Я <b><a href='https://t.me/{me.username}'>{me.first_name}</a></b>.\nМой автор - <a href='https://github.com/avdushin'>ITDOBRO</a>!".format(bot.get_me()), parse_mode="html")
         case "info":
             me = await bot.get_me()
-            await bot.send_message(message.from_user.id, f"Я <b>{me.first_name}</b>.\nМой автор - <a href='https://github.com/avdushin'>Ananazz</a>!".format(bot.get_me()), parse_mode="html")
+            await bot.send_message(message.from_user.id, f"Я <b>{me.first_name}</b>.\nМой автор - <a href='https://github.com/avdushin'>ITDOBRO</a>!".format(bot.get_me()), parse_mode="html")
         # --- GAMES --- 🎲🎰🎯🏀⚽🎳 # 
         case "🕹️ GAMES":
              await bot.send_message(message.from_user.id, '🕹️ Давай играть!!!'.format(message.from_user),
