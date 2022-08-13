@@ -36,4 +36,27 @@ emoji==2.0.0
 python-dotenv==0.20.0
 ```
 
+### DEV TOOLS
+
+#### If you upgraded bot then you should to build his new version. I creted some tools for this!
+
+[DEV TOOLS]("https://github.com/Avdushin/ROBIN/blob/main/Makefile")
+
+### Windows build example
+Use `make example-win` to build your own modified bot at the "examples" folder.
+
+### Unix/Linix/Mac OS build example
+Use `make example` to build your own modified bot at the "examples" folder. 
+
+```Makefile
+# --- dev tools ---
+# Make "examples" folder (Unix)
+example:
+	cp -rv `ls -A | grep -vE ".git|.env|.gitignore|.vscode|README.md|__pycache__|examples|test"` examples
+# Make "examples" folder (Windows)
+example-win:
+	robocopy "." "examples" /xf ".gitignore" ".env" "README.md" /xd "assets" "test" ".vscode" "__pycache__" "examples" ".git" /s
+	echo -e "examples" folder was builded!
+```
+
 <p align="center">2022 © <a href="https://github.com/Avdushin" target="_blank">AVDUSHIN</a></p>
