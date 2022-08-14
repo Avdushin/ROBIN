@@ -16,7 +16,6 @@
 git clone https://github.com/Avdushin/ROBIN
 cd ROBIN
 make install
-make setup
 ```
 
 #### OR YOU CAN EDIT `.env` file:
