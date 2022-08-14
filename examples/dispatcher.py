@@ -4,11 +4,11 @@ from time import sleep
 from turtle import delay
 from aiogram import Bot, Dispatcher, executor, types
 from dotenv import load_dotenv, find_dotenv
+from handlers import *
+
 
 import logging, random, time, asyncio, os
-import msgs
 # bot keybords
-import markups
 
 # Find .env file
 load_dotenv(find_dotenv())
