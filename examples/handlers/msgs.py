@@ -1,4 +1,3 @@
-from email import message
 from aiogram import Bot, Dispatcher, executor, types
 import logging, os
 

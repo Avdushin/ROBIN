@@ -1,14 +1,9 @@
-from email import message
-from email.policy import default
 from time import sleep
-from turtle import delay
 from aiogram import Bot, Dispatcher, executor, types
 from dotenv import load_dotenv, find_dotenv
 from handlers import *
 
-
 import logging, random, time, asyncio, os
-# bot keybords
 
 # Find .env file
 load_dotenv(find_dotenv())
@@ -92,8 +87,6 @@ async def bot_message(message: types.Message):
             match msg.dice.value:
                 case 4 | 5 | 6:
                     time.sleep(3), await  bot.send_message(message.chat.id, 'ПОПАЛ!')
-                # case 3:
-                #     time.sleep(3), await  bot.send_message(message.chat.id, 'ПОЧТИ :/')
                 case 1 | 2:
                     time.sleep(3), await  bot.send_message(message.chat.id, 'МИМО!')
             break
@@ -201,7 +194,6 @@ async def bot_message(message: types.Message):
     # --- LAUGH ---
     for s in msgs.laugh_trigger:
         if message.text.lower().find(s.lower()) != -1:
-            # await bot.send_message(message.from_user.id, f'{random.choice(msgs.laugh_answers)}'.format(message.from_user))
             await bot.send_sticker(message.from_user.id, f'{random.choice(msgs.green_lizard_laugh)}')
             break
 
@@ -232,7 +224,3 @@ async def bot_message(message: types.Message):
         case "🎰 LUCK":
              await bot.send_message(message.from_user.id, '🎰 LUCK'.format(message.from_user),
         reply_markup = markups.casino_menu, parse_mode='html')
-        # --- Happy ---
-        # case "хех":
-        #     await bot.send_message(message.from_user.id, 'АХАха да, ржомба!'.format(message.from_user),
-        # parse_mode='html')

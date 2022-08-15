@@ -1,14 +1,8 @@
-from turtle import back
 from aiogram.types import ReplyKeyboardMarkup, KeyboardButton
-from dotenv import load_dotenv, find_dotenv
-
-# Find .env file
-load_dotenv(find_dotenv())
 
 # back button
 back_btn = KeyboardButton('◀️ НАЗАД')
 back_games_btn = KeyboardButton('◀️ GAMES')
-backmain_btn = KeyboardButton('⚓️ ГЛАВНАЯ')
 
 # --- Main menu ---
 games_btn = KeyboardButton('🕹️ GAMES')
