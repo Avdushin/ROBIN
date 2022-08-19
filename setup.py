@@ -26,7 +26,6 @@ def clear():
 def setup():
 
     print(f'\nYou can get a BOT TOKEN from \033[1;37;40m@BotFather - https://t.me/BotFather\033[0;37;40m')
-
     token = pwinput.pwinput('\nEnter your bot TOKEN: ')
 
     match token:
